@@ -1,2 +1,6 @@
 FROM mysql
 WORKDIR /mysql
+
+COPY . .
+
+EXPOSE 3306

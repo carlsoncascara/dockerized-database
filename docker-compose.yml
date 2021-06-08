@@ -13,9 +13,9 @@ services:
             MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
             MYSQL_DATABASE: $MYSQL_DABASE
         volumes:
-            - mysql-db:/db/mysql_node.sql
+            - mysqldb:/database
 volumes:
-    mysql-db:
+    mysqldb:
 networks:
     dbxnode:
         name: dbxnode
