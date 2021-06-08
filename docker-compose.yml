@@ -1,0 +1,22 @@
+version: "3"
+services:
+    employee-db:
+        image: mysql
+        restart: always
+        env_file: ./.env
+        networks:
+            - dbxnode
+        hostname: 0.0.0.0
+        ports:
+            - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
+        environment:
+            MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+            MYSQL_DATABASE: $MYSQL_DABASE
+        volumes:
+            - mysql-db:/db/mysql_node.sql
+volumes:
+    mysql-db:
+networks:
+    dbxnode:
+        name: dbxnode
+        driver: bridge
